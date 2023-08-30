@@ -58,6 +58,54 @@
   <body>
     <script>
       // COLOQUE SEU CÓDIGO AQUI
+      const criarElemento = (element, text, clas) => {
+        const item = document.createElement(element);
+        if (typeof text == 'string') {
+          item.textContent = text;
+        }
+        if (clas) {
+          item.classList.add(clas);
+        }
+        return item;
+      };
+
+      const addElement = (pai, filho) => {
+        const elementPai = document.querySelector(pai);
+        elementPai.appendChild(filho);
+      };
+
+      addElement("body", criarElemento("h1", "TrybeTrip - Agência de Viagens"));
+      addElement("body", criarElemento("main", "", "main-content"));
+      addElement("main", criarElemento("section", "", "center-content"));
+      addElement(".center-content", criarElemento("p", "Parágrafo Criardo"));
+      addElement('main', criarElemento('section','','left-content'));
+      addElement('main', criarElemento('section','','right-content'));
+      addElement('.left-content', criarElemento('img',0,'small-image'))
+      document.querySelector('.small-image').setAttribute('src', 'https://picsum.photos/200')
+      addElement('.right-content', criarElemento('ul'))
+      addElement('ul', criarElemento('li','Um'))
+      addElement('ul', criarElemento('li','Dois'))
+      addElement('ul', criarElemento('li','Três'))
+      addElement('ul', criarElemento('li','Quatro'))
+      addElement('ul', criarElemento('li','Cinco'))
+      addElement('ul', criarElemento('li','Seis'))
+      addElement('ul', criarElemento('li','Sete'))
+      addElement('ul', criarElemento('li','Oito'))
+      addElement('ul', criarElemento('li','Nove'))
+      addElement('ul', criarElemento('li','Dez'))
+      addElement('main', criarElemento('h3','H3 01'))
+      addElement('main', criarElemento('h3','H3 02'))
+      addElement('main', criarElemento('h3','H3 03'))
+
+      document.querySelector('h1').classList.add('title')
+      document.querySelectorAll('h3').forEach((item)=>{
+        item.classList.add('description')
+      })
+      document.querySelector('main').removeChild(document.querySelector('.left-content'))
+      document.querySelector('.right-content').style.marginRight = 'auto';
+      document.querySelector('.center-content').parentElement.style.backgroundColor = 'green'
+      document.querySelector('ul').lastChild.remove()
+      document.querySelector('ul').lastChild.remove()
     </script>
   </body>
 </html>
